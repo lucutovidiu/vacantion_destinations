@@ -5,13 +5,13 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.3.RELEASE</version>
+		<version>2.2.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.liceenta</groupId>
-	<artifactId>vacanta</artifactId>
+	<groupId>com.proiect</groupId>
+	<artifactId>vacation-destinations</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>vacanta</name>
+	<name>vacation-destinations</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

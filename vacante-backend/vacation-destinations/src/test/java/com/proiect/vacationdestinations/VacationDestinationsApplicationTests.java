@@ -1,10 +1,10 @@
-package com.liceenta.vacanta;
+package com.proiect.vacationdestinations;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class VacantaApplicationTests {
+class VacationDestinationsApplicationTests {
 
 	@Test
 	void contextLoads() {

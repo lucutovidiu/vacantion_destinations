@@ -1,13 +1,13 @@
-package com.liceenta.vacanta;
+package com.proiect.vacationdestinations;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class VacantaApplication {
+public class VacationDestinationsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(VacantaApplication.class, args);
+		SpringApplication.run(VacationDestinationsApplication.class, args);
 	}
 
 }
