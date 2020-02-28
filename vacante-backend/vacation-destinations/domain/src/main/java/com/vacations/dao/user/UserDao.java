@@ -1,7 +1,7 @@
 package com.vacations.dao.user;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.vacations.permission.UserRolesDao;
+import com.vacations.dao.permission.UserRolesDao;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

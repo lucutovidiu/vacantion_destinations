@@ -1,4 +1,4 @@
-package com.vacations.permission;
+package com.vacations.dao.permission;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.vacations.dao.user.UserDao;

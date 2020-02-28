@@ -1,5 +1,7 @@
 package com.vacations.permission;
 
+import com.vacations.dao.permission.UserRolesDao;
+import com.vacations.dao.permission.UserRolesRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

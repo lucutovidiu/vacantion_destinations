@@ -1,4 +1,4 @@
-package com.vacations.permission;
+package com.vacations.dao.permission;
 
 import lombok.Getter;
 
