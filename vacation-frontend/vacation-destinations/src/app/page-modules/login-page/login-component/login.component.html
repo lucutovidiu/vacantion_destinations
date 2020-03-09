@@ -1,0 +1,39 @@
+<div class="login-wrapper h-100 d-flex justify-content-center align-items-start">
+    <div class="login-box-wrapper mt-5">
+        <div class="login-title pb-4 text-left">
+            <h3>
+                Login
+            </h3>
+        </div>
+        <form class="w-100 d-flex flex-column align-items-center" [formGroup]="loginForm">
+            <div class="login-user-name">
+                <mat-form-field class="w-100">
+                    <input autocomplete="off" formControlName="username" matInput placeholder="USERNAME OR EMAIL">
+                    <mat-error>
+                        USERNAME OR EMAIL INVALID
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="login-password">
+                <mat-form-field class="w-100">
+                    <input autocomplete="off" formControlName="password" matInput type="password"
+                        placeholder="PASSWORD">
+                    <mat-error>
+                        PASSWORD INVALID
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+                <button disabled="{{!loginForm.valid}}" mat-raised-button mat-button class="py-1">
+                    <p (click)="subbmitLogin()" class="submitbtn">ADMIN LOGIN</p>
+                </button>
+            </div>
+        </form>
+        <div *ngIf="hasLoginFailed" class="mt-4 text-center alert alert-danger">
+            USERNAME OR EMAIL INVALID
+        </div>
+        <div *ngIf="hasLoginSucced" class="mt-4 text-center alert alert-success">
+            Login Succeded
+        </div>
+    </div>
+</div>
