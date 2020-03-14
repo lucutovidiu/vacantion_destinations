@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient, HttpEvent, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 
 import { AuthRepo } from 'shared_services/repositories/Auth/AuthRepo';
 import { SessionUserInfo } from 'shared_services/repositories/Auth/SessionUserInfo';
@@ -19,7 +19,7 @@ export class AuthService {
     public get isUserAuthenticated(): boolean {
         let auth: SessionUserInfo = this.authRepo.authInfo;
         if (auth && auth.isAuthenticated && auth.token) {
-            return true;
+            return true; //TODO make call to server to re authenticate ("/login")
         } else
             return false;
     }

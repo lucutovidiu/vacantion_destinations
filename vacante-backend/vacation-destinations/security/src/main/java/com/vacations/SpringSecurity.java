@@ -43,11 +43,11 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
 //                .permitAll()
 //                .and()
             .cors()
-                .and()
-            .logout()
-                .logoutUrl("/logout")
-                .deleteCookies("JSESSIONID")
-                .logoutSuccessUrl("/login");
+                .and();
+//            .logout()
+//                .logoutUrl("/logout")
+//                .deleteCookies("JSESSIONID")
+//                .logoutSuccessUrl("/login");
     }
 
     @Override

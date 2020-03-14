@@ -28,7 +28,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiEndPointsInfo() {
         return new ApiInfoBuilder().title("Spring Boot REST API")
-                .description("Employee Management REST API")
+                .description("Vacation Destinations REST API")
                 .contact(new Contact("Vacations Booking", "www.vacations.com", "admin@vacations.com"))
                 .version("1.0.0")
                 .build();
