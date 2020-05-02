@@ -12,4 +12,7 @@ public interface LoginEndpoint {
     @GetMapping("/login")
     @PostAuthorize("hasAnyRole('USER')")
     LoginResponse getAuthenticated();
+
+    @GetMapping("/testCors")
+    String testCors();
 }

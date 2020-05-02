@@ -9,4 +9,9 @@ public class LoginController implements LoginEndpoint {
     public LoginResponse getAuthenticated() {
         return new LoginResponse("Authenticated");
     }
+
+    @Override
+    public String testCors() {
+        return "Cors Are Working";
+    }
 }
