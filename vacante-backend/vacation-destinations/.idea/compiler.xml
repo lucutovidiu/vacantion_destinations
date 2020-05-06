@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="domain" />
+        <module name="rest-api" />
+        <module name="rest-api-impl" />
+        <module name="security" />
+        <module name="service-api" />
+        <module name="service-api-impl" />
+        <module name="web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="domain" target="1.8" />
+      <module name="rest-api" target="1.8" />
+      <module name="rest-api-impl" target="1.8" />
+      <module name="security" target="1.8" />
+      <module name="service-api" target="1.8" />
+      <module name="service-api-impl" target="1.8" />
+      <module name="vacations" target="1.8" />
+      <module name="web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="domain" options="-parameters" />
+      <module name="rest-api" options="-parameters" />
+      <module name="rest-api-impl" options="-parameters" />
+      <module name="security" options="-parameters" />
+      <module name="service-api" options="-parameters" />
+      <module name="service-api-impl" options="-parameters" />
+      <module name="web" options="-parameters" />
+    </option>
+  </component>
+</project>

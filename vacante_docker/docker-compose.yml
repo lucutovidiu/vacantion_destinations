@@ -17,45 +17,48 @@ services:
       - 5432:5432
     volumes: 
       - vacante_db_volume:/var/lib/postgresql/data
-  # vacante_be:
-  #   depends_on: 
-  #     - vacante_db
-  #   container_name: vacante_be
-  #   build: 
-  #     context: ../vacante-backend/vacation-destinations
-  #     dockerfile: .dockerfile
-  #   volumes: 
-  #     - ../vacante-backend/vacation-destinations:/vacante-be
-  #   working_dir: /vacante-be
-  #   environment: 
-  #     - DATABASE_HOST=vacante_db
-  #     - DATABASE_PORT=5432
-  #     - DATABASE_USER=${POSTGRES_USER}
-  #     - DATABASE_PASSWORD=${POSTGRES_PASSWORD}
-  #     - DATABASE_NAME=${POSTGRES_DB}
-  #     - ACTIVE_PROFILE=${ACTIVE_PROFILE}
-  #     - urlForCrossOrigin=${urlForCrossOrigin}
-  #   networks: 
-  #     - vacante_network
-  #   ports: 
-  #     - 8080:8080 
-  #   entrypoint: "bash -c 'java -jar ./web/target/vacation-destinations.jar'"
-  # vacante-fe:
-  #   # depends_on: 
-  #   #   - vacante_be
-  #   container_name: vacante-fe
-  #   build: 
-  #     context: ../vacation-frontend/vacation-destinations/
-  #     dockerfile: .dockerfile
-  #   volumes: 
-  #     - ../vacation-frontend/vacation-destinations:/vacante-fe
-  #     - node_modules:/vacante-fe/node_modules
-  #   ports: 
-  #     - 4200:4200
-  #   networks: 
-  #     - vacante_network
-    
-
+  vacante-be:
+    depends_on: 
+      - vacante_db
+    container_name: vacante-be
+    build: 
+      context: ../vacante-backend/vacation-destinations
+      dockerfile: .dockerfile
+    volumes: 
+      - ../vacante-backend/vacation-destinations:/vacante-be
+      # - /vacante-be/web/target
+      # - /vacante-be/domain/target
+      # - /vacante-be/rest-api/target
+      # - /vacante-be/rest-api-impl/target
+      # - /vacante-be/security/target
+      # - /vacante-be/service-api/target
+      # - /vacante-be/service-api-impl/target
+    working_dir: /vacante-be
+    ports: 
+      - 9005:8080
+      - 8000:8000
+    environment: 
+      - DATABASE_HOST=vacante_db
+      - DATABASE_PORT=5432
+      - DATABASE_USER=${POSTGRES_USER}
+      - DATABASE_PASSWORD=${POSTGRES_PASSWORD}
+      - DATABASE_NAME=${POSTGRES_DB}
+      - ACTIVE_PROFILE=${ACTIVE_PROFILE}
+      - urlForCrossOrigin=${urlForCrossOrigin}
+    networks: 
+      - vacante_network
+  vacante-fe:
+    container_name: vacante-fe
+    build: 
+      context: ../vacation-frontend/vacation-destinations/
+      dockerfile: .dockerfile
+    volumes: 
+      - ../vacation-frontend/vacation-destinations:/vacante-fe
+      - node_modules:/vacante-fe/node_modules
+    ports: 
+      - 4200:4200
+    networks: 
+      - vacante_network  
 
 networks: 
   vacante_network:
