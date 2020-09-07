@@ -5,7 +5,10 @@ sql scripts will get inserted into database for creating tabels and inserting de
 
 
 #IntelliJ string example
-DATABASE_HOST=192.168.99.100;DATABASE_PORT=5432;DATABASE_USER=root;DATABASE_PASSWORD=password;DATABASE_NAME=vacante;ACTIVE_PROFILE=dev;urlForCrossOrigin=http://localhost:4200
+--For Windows--
+spring.profiles.active=local-windows
+--For Linux--
+spring.profiles.active=local-linux
 
 #.env settings example
 POSTGRES_PASSWORD=password
