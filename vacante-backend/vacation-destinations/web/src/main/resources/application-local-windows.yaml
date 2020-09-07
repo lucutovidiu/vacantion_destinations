@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://192.168.99.100:5432/vacante?autoReconnect=true&useSSL=false
+    url: jdbc:postgresql://192.168.99.100:5532/vacante?autoReconnect=true&useSSL=false
     username: root
     password: password
 urlForCrossOrigin: http://localhost:4200
