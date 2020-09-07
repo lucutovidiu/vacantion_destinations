@@ -15,16 +15,11 @@ import javax.persistence.*;
 @Setter
 public class UserRolesDao {
 
-	@Id
-	@GeneratedValue
-	private Integer id;
+    @Id
+    @GeneratedValue
+    private Integer id;
 
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	@JsonBackReference
-	private UserDao userId;
-
-	@Enumerated(value = EnumType.STRING)
-	@Column(name = "role")
-	private RoleEnum userRoleEnum;
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "role")
+    private RoleEnum userRoleEnum;
 }

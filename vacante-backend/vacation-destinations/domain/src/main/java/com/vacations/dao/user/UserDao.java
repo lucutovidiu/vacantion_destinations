@@ -1,6 +1,5 @@
 package com.vacations.dao.user;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.vacations.dao.permission.UserRolesDao;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,45 +19,45 @@ import java.util.List;
 @Setter
 public class UserDao {
 
-	@Id
-	@GeneratedValue
-	@Column(name = "user_id")
-	private Integer userId;
+    @Id
+    @GeneratedValue
+    @Column(name = "user_id")
+    private Integer userId;
 
-	@Column(name = "created_at")
-	@CreationTimestamp
-	private LocalDateTime createdAt;
+    @Column(name = "created_at")
+    @CreationTimestamp
+    private LocalDateTime createdAt;
 
-	@NotNull
-	private String email;
+    @NotNull
+    private String email;
 
-	@NotNull
-	@Column(name = "first_name")
-	private String firstName;
+    @NotNull
+    @Column(name = "first_name")
+    private String firstName;
 
-	@NotNull
-	@Column(name = "last_name")
-	private String lastName;
+    @NotNull
+    @Column(name = "last_name")
+    private String lastName;
 
-	@NotNull
-	private String gender;
+    @NotNull
+    private String gender;
 
-	@NotNull
-	private String password;
+    @NotNull
+    private String password;
 
-	@Column(columnDefinition = "BOOLEAN DEFAULT true")
-	private Boolean isAccountNonExpired = true;
+    @Column(columnDefinition = "BOOLEAN DEFAULT true")
+    private Boolean isAccountNonExpired = true;
 
-	@Column(columnDefinition = "BOOLEAN DEFAULT true")
-	private Boolean isAccountNonLocked = true;
+    @Column(columnDefinition = "BOOLEAN DEFAULT true")
+    private Boolean isAccountNonLocked = true;
 
-	@Column(columnDefinition = "BOOLEAN DEFAULT true")
-	private Boolean isCredentialsNonExpired = true;
+    @Column(columnDefinition = "BOOLEAN DEFAULT true")
+    private Boolean isCredentialsNonExpired = true;
 
-	@Column(columnDefinition = "BOOLEAN DEFAULT true")
-	private Boolean isEnabled = true;
+    @Column(columnDefinition = "BOOLEAN DEFAULT true")
+    private Boolean isEnabled = true;
 
-	@OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JsonManagedReference
-	private List<UserRolesDao> userRoles;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id_ref")
+    private List<UserRolesDao> userRoles = new ArrayList<>();
 }
