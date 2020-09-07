@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: "jdbc:postgresql://localhost:5532/vacante?autoReconnect=true&useSSL=false"
+    username: root
+    password: password

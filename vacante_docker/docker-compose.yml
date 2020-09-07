@@ -14,7 +14,7 @@ services:
     networks: 
       - vacante_network
     ports: 
-      - 5432:5432
+      - 5532:5432
     volumes: 
       - vacante_db_volume:/var/lib/postgresql/data
   vacante-be:
