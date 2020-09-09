@@ -1,7 +1,7 @@
 package com.vacations;
 
-import com.vacations.dao.user.UserDao;
-import com.vacations.dao.user.UserRepo;
+import com.vacations.dao.user.UserEntity;
+import com.vacations.dao.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,11 +14,11 @@ import java.util.Optional;
 public class CustomUserDetailsService implements UserDetailsService {
 
 	@Autowired
-	UserRepo userRepo;
+	UserRepository userRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String user) throws UsernameNotFoundException {
-		Optional<UserDao> userDao = userRepo.findByEmailIgnoreCaseOrFirstNameIgnoreCase(user,user);
+		Optional<UserEntity> userDao = userRepository.findByEmailIgnoreCaseOrFirstNameIgnoreCase(user,user);
 		if(userDao.isPresent()){
 			return new CustomUserDetails(userDao.get());
 		}else

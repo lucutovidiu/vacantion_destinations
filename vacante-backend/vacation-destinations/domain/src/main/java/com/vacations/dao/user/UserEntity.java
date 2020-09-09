@@ -1,9 +1,12 @@
 package com.vacations.dao.user;
 
-import com.vacations.dao.permission.UserRolesDao;
+import com.vacations.dao.base.BaseEntity;
+import com.vacations.dao.orders.OrderEntity;
+import com.vacations.dao.permission.UserRolesEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.Cache;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -17,16 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class UserDao {
-
-    @Id
-    @GeneratedValue
-    @Column(name = "user_id")
-    private Integer userId;
-
-    @Column(name = "created_at")
-    @CreationTimestamp
-    private LocalDateTime createdAt;
+public class UserEntity extends BaseEntity {
 
     @NotNull
     private String email;
@@ -57,7 +51,10 @@ public class UserDao {
     @Column(columnDefinition = "BOOLEAN DEFAULT true")
     private Boolean isEnabled = true;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id_ref")
-    private List<UserRolesDao> userRoles = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private List<UserRolesEntity> userRoles = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
+    private List<OrderEntity> orders;
 }
