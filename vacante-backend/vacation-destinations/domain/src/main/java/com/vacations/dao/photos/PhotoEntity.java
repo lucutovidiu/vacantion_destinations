@@ -18,4 +18,11 @@ public class PhotoEntity extends BaseEntity {
     private byte[] photo;
     @NotNull
     private String photoName;
+
+    public static PhotoEntity createPhotoEntity(byte[] photoByteArray, String name){
+        PhotoEntity photoEntity = new PhotoEntity();
+        photoEntity.setPhoto(photoByteArray);
+        photoEntity.setPhotoName(name);
+        return photoEntity;
+    }
 }

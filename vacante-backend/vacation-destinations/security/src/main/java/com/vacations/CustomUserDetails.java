@@ -1,6 +1,6 @@
 package com.vacations;
 
-import com.vacations.dao.user.UserEntity;
+import com.vacations.dao.user.pojo.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,17 +12,17 @@ import java.util.stream.Collectors;
 @Service
 public class CustomUserDetails implements UserDetails {
 
-	UserEntity userEntity;
+	private User user;
 
 	public CustomUserDetails(){}
 
-	public CustomUserDetails(UserEntity userEntity){
-		this.userEntity = userEntity;
+	public CustomUserDetails(User user){
+		this.user = user;
 	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return this.userEntity.getUserRoles()
+		return user.getUserRoles()
 				.stream()
 				.map(role->new SimpleGrantedAuthority("ROLE_"+role.getUserRoleEnum().getLabel()))
 				.collect(Collectors.toList());
@@ -30,31 +30,31 @@ public class CustomUserDetails implements UserDetails {
 
 	@Override
 	public String getPassword() {
-		return userEntity.getPassword();
+		return user.getPassword();
 	}
 
 	@Override
 	public String getUsername() {
-		return userEntity.getEmail();
+		return user.getEmail();
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
-		return userEntity.getIsAccountNonExpired();
+		return user.getIsAccountNonExpired();
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		return userEntity.getIsAccountNonLocked();
+		return user.getIsAccountNonLocked();
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		return userEntity.getIsCredentialsNonExpired();
+		return user.getIsCredentialsNonExpired();
 	}
 
 	@Override
 	public boolean isEnabled() {
-		return userEntity.getIsEnabled();
+		return user.getIsEnabled();
 	}
 }
