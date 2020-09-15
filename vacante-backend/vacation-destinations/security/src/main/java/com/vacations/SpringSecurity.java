@@ -26,12 +26,14 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        // @formatter:off
         http.csrf()
                 .disable()
             .httpBasic()
                 .and()
             .authorizeRequests()
-                .antMatchers("/swagger**")
+                .antMatchers("/swagger**",
+                        "/api/photos/photo/**")
                 .permitAll()
                 .and()
             .authorizeRequests()

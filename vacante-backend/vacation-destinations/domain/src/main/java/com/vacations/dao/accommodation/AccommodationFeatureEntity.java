@@ -16,6 +16,7 @@ import java.util.List;
 public class AccommodationFeatureEntity extends BaseEntity {
 
     @NotNull
+    @Column(unique = true)
     private String name;
     private long price;
     private boolean included;

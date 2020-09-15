@@ -2,6 +2,7 @@ package com.vacations.dao.orders;
 
 import com.vacations.dao.base.BaseEntity;
 import com.vacations.dao.user.UserEntity;
+import com.vacations.dao.user.pojo.Order;
 import com.vacations.dao.vacation.VacationEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,4 +32,13 @@ public class OrderEntity extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "vacation_id")
     private VacationEntity vacation;
+
+    public Order toOrder(){
+        return Order.builder()
+                .price(price)
+                .orderStatus(orderStatus)
+                .paymentCardType(paymentCardType)
+                .user(user)
+                .build();
+    }
 }
