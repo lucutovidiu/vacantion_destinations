@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-@RequestMapping("/api/photos")
+@RequestMapping("/api/attachments")
 public interface PhotosEndpoint {
 
     @ResponseStatus(code = HttpStatus.CREATED)
@@ -19,6 +19,6 @@ public interface PhotosEndpoint {
 
     @ApiOperation(value = "Get photo")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Input values incorect!")})
-    @GetMapping("/photo/{photoId}")
-    ResponseEntity getPhotoById(@PathVariable("photoId") long photoId);
+    @GetMapping("/photo/{storageKey}")
+    ResponseEntity getPhotoById(@PathVariable("storageKey") long storageKey);
 }

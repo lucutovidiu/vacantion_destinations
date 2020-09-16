@@ -8,5 +8,5 @@ public interface PhotosService {
 
     void addPhoto(MultipartFile photo);
 
-    byte[] getPhotoById(long photoId);
+    byte[] getPhotoById(long storageKey);
 }

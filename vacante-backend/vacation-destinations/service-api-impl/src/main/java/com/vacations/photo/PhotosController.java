@@ -22,8 +22,8 @@ public class PhotosController implements PhotosEndpoint {
     }
 
     @Override
-    public ResponseEntity getPhotoById(long photoId) {
-        byte[] photoById = photosService.getPhotoById(photoId);
+    public ResponseEntity getPhotoById(long storageKey) {
+        byte[] photoById = photosService.getPhotoById(storageKey);
         return ResponseEntity.ok()
                 .contentLength(photoById.length)
                 .contentType(MediaType.APPLICATION_OCTET_STREAM)

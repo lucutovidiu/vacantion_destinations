@@ -30,8 +30,8 @@ public class PhotosServiceImpl implements PhotosService {
     }
 
     @Override
-    public byte[] getPhotoById(long photoId) {
-        return photoRepository.findById(photoId)
+    public byte[] getPhotoById(long storageKey) {
+        return photoRepository.findById(storageKey)
                 .map(PhotoEntity::getPhoto)
                 .orElseThrow(() -> new RuntimeException("Photo not found exception!!"));
     }
